@@ -43,7 +43,7 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
 
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "generate_image"
-    CATEGORY = "😃SML"
+    CATEGORY = "😃 SML"
 
     def generate_image(self,
                        prompt,
@@ -88,5 +88,5 @@ NODE_CLASS_MAPPINGS = {
 
 # Node display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "SML_FluxPro_Replicate": "🔥 SML Flux Pro (Replicate)",
+    "SML_FluxPro_Replicate": "😃 SML Flux Pro (Replicate)",
 }
