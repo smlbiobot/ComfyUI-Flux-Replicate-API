@@ -1,3 +1,6 @@
+# don’t store config in repo
+config.ini
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
