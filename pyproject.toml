@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-flux-replicate-api"
+description = "Flux Pro via Replicate API\nCreate API key at [a/https://replicate.com/account/api-tokens](https://replicate.com/account/api-tokens)\nCopy config.ini.example to config.ini and put the replicate key there."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["torch", "repicate"]
+
+[project.urls]
+Repository = "https://github.com/smlbiobot/ComfyUI-Flux-Replicate-API"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Flux-Replicate-API"
+Icon = ""
