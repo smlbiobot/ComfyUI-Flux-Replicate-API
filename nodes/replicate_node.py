@@ -83,10 +83,10 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
 
 # Node class mappings
 NODE_CLASS_MAPPINGS = {
-    "SML_FluxPro_Replicate": SMLFluxProReplicateNode,
+    "SML_FluxPro_Replicate_Standalone": SMLFluxProReplicateNode,
 }
 
 # Node display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "SML_FluxPro_Replicate": "😃 SML Flux Pro (Replicate)",
+    "SML_FluxPro_Replicate_Standalone": "😃 SML Flux Pro (Replicate)",
 }
