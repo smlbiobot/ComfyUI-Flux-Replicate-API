@@ -11,6 +11,7 @@ class SMLFluxBaseNode:
         pass
 
     def process_result(self, result):
+        # sometimes Replicate would return results in a list
         if isinstance(result, list):
             img_url = result[0]
         else:
