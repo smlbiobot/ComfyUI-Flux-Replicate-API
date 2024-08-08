@@ -19,8 +19,6 @@ except KeyError:
     print("Error: REPLICATE_API_TOKEN not found in config.ini")
 
 
-
-
 class SMLFluxProReplicateNode(SMLFluxBaseNode):
 
     @classmethod
@@ -45,7 +43,7 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
 
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "generate_image"
-    CATEGORY = "🔥SML"
+    CATEGORY = "😃SML"
 
     def generate_image(self,
                        prompt,
@@ -76,7 +74,6 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
             result = replicate.run(
                 "black-forest-labs/flux-pro",
                 input=input,
-
             )
             return self.process_result(result)
         except Exception as e:
@@ -87,11 +84,9 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
 # Node class mappings
 NODE_CLASS_MAPPINGS = {
     "SML_FluxPro_Replicate": SMLFluxProReplicateNode,
-
 }
 
 # Node display name mappings
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "SML_FluxPro_Replicate": "🔥SML Flux Pro (Replicate)",
-
+    "SML_FluxPro_Replicate": "🔥 SML Flux Pro (Replicate)",
 }

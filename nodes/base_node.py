@@ -5,6 +5,8 @@ import requests
 import torch
 from PIL import Image
 
+import torchvision.transforms as transforms
+
 
 class SMLFluxBaseNode:
     def __init__(self):
@@ -19,6 +21,7 @@ class SMLFluxBaseNode:
 
         img_response = requests.get(img_url)
         img = Image.open(io.BytesIO(img_response.content))
+
         img_array = np.array(img).astype(np.float32) / 255.0
         images = []
         images.append(img_array)
