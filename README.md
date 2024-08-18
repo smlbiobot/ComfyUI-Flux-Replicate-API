@@ -40,4 +40,10 @@ Install the requirements
 pip install -r requirements.txt
 ```
 
+Copy the example config `config.ini.example` to `config.ini`, then edit the `config.ini` with the actual Repliate API token.
+
+```shell
+cp config.ini.example config.ini
+```
+
 Start ComfyUI.
