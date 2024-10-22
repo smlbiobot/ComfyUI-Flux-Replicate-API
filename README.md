@@ -6,7 +6,7 @@ Flux Pro via Replicate API
 
 ## Node
 
-![workflow-1.png](static%2Fworkflow-1.png)
+![workflow-1.1.png](static/workflow-1.1.png)
 
 ## Installation
 
