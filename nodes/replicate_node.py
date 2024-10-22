@@ -37,7 +37,7 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
                 "guidance": ("FLOAT", {"default": 3, "min": 2, "max": 5}),
                 "interval": ("INT", {"default": 2, "min": 1, "max": 4}),
                 "safety_tolerance": ("INT", {"default": 5, "min": 1, "max": 5}),
-                "prompt_upsampling": ("BOOL", {"default": False}),
+                "prompt_upsampling": ("BOOLEAN", {"default": False}),
             },
             "optional": {
                 "seed": ("INT", {"default": -1}),
