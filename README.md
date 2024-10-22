@@ -47,3 +47,7 @@ cp config.ini.example config.ini
 ```
 
 Start ComfyUI.
+
+## Version History
+
+- 2024-10-22: Updated to Replicate Flex Pro 1.1. Please note that this version is not compatible with Replicate Flex Pro 1.0 because of changed parameter
