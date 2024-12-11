@@ -5,21 +5,9 @@ import replicate
 
 from .base_node import SMLFluxBaseNode
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-config_path = os.path.join(parent_dir, "config.ini")
-
-config = configparser.ConfigParser()
-config.read(config_path)
-
-try:
-    replicate_api_token = config['API']['REPLICATE_API_TOKEN']
-    os.environ["REPLICATE_API_TOKEN"] = replicate_api_token
-except KeyError:
-    print("Error: REPLICATE_API_TOKEN not found in config.ini")
-
 
 class SMLFluxProReplicateNode(SMLFluxBaseNode):
+    api_token: str = None
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -48,6 +36,22 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
     FUNCTION = "generate_image"
     CATEGORY = "😃 SML"
 
+    def set_api_token(self):
+        if self.api_token is None:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            parent_dir = os.path.dirname(current_dir)
+            config_path = os.path.join(parent_dir, "config.ini")
+
+            config = configparser.ConfigParser()
+            config.read(config_path)
+
+            try:
+                replicate_api_token = config['API']['REPLICATE_API_TOKEN']
+                os.environ["REPLICATE_API_TOKEN"] = replicate_api_token
+                self.api_token = replicate_api_token
+            except KeyError:
+                print("Error: REPLICATE_API_TOKEN not found in config.ini")
+
     def generate_image(self,
                        prompt,
                        aspect_ratio,
@@ -75,6 +79,9 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
             disable_safety_checker=True,
             prompt_upsampling=prompt_upsampling,
         )
+
+        self.set_api_token()
+
         if seed != -1:
             input["seed"] = seed
 
@@ -84,7 +91,9 @@ class SMLFluxProReplicateNode(SMLFluxBaseNode):
                 "black-forest-labs/flux-1.1-pro",
                 input=input,
             )
+
             return self.process_result(result)
+
         except Exception as e:
             print(f"Error generating image with FluxPro: {str(e)}")
             return self.create_blank_image()

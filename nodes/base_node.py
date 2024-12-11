@@ -16,6 +16,8 @@ class SMLFluxBaseNode:
         # sometimes Replicate would return results in a list
         if isinstance(result, list):
             img_url = result[0]
+        elif hasattr(result, 'url'):
+            img_url = result.url
         else:
             img_url = result
 
