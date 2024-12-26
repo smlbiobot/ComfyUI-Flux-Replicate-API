@@ -33,11 +33,8 @@ class SMLFluxProUltraReplicateNode(SMLFluxBaseNode):
                         "default": "1:1"
                     }
                 ),
-                "width": ("INT", {"default": 1024, "min": 256, "max": 1440}),
-                "height": ("INT", {"default": 1024, "min": 256, "max": 1440}),
                 "steps": ("INT", {"default": 30, "min": 1, "max": 100}),
                 "output_quality": ("INT", {"default": 100, "min": 1, "max": 100}),
-                "image_prompt_strength": ("FLOAT", {"default": 0.1, "min": 0.0, "max": 1.0}),
                 "interval": ("INT", {"default": 2, "min": 1, "max": 4}),
                 "safety_tolerance": ("INT", {"default": 6, "min": 1, "max": 6}),
                 "raw": ("BOOLEAN", {"default": False}),
@@ -70,29 +67,23 @@ class SMLFluxProUltraReplicateNode(SMLFluxBaseNode):
     def generate_image(self,
                        prompt,
                        aspect_ratio,
-                       width,
-                       height,
                        steps,
                        output_quality,
-                       guidance,
                        interval,
                        safety_tolerance,
-                       prompt_upsampling,
+                       raw,
                        seed=-1
                        ):
         input = dict(
             prompt=prompt,
             aspect_ratio=aspect_ratio,
             output_quality=output_quality,
-            width=width,
-            height=height,
             output_format='png',
             steps=steps,
             safety_tolerance=safety_tolerance,
-            guidance=guidance,
             interval=interval,
             disable_safety_checker=True,
-            prompt_upsampling=prompt_upsampling,
+            raw=raw,
         )
 
         self.set_api_token()
